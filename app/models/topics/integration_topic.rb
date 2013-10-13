@@ -1,0 +1,2 @@
+class IntegrationTopic < Topic
+end

@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009222703) do
+ActiveRecord::Schema.define(version: 20131013192421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bailiwicks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.string   "rank"
+    t.string   "affinity"
+    t.text     "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bailiwicks", ["topic_id", "user_id"], name: "index_bailiwicks_on_topic_id_and_user_id", using: :btree
+  add_index "bailiwicks", ["user_id", "topic_id"], name: "index_bailiwicks_on_user_id_and_topic_id", using: :btree
+
+  create_table "topics", force: true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "topics", ["name"], name: "index_topics_on_name", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,2 @@
+class ComponentTopic < Topic
+end
