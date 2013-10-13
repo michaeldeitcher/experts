@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title Experts
+    <meta name="viewport" content="width=device-width; initial-scale=1">
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+  %body{:class => controller_name + '_controller ' + action_name + '_action' }
+    = csrf_meta_tags
+    %div{'data-role' => @jqm_page_data_role}
+      %div{'data-role' => 'header', 'data-theme' => @jqm_header_data_theme}
+        = yield :header
+      %div{'data-role' => 'content'}
+        - if notice.present?
+          %p.notice= notice
+        - if alert.present?
+          %p.alert= alert
+        = yield
+      - if @jqm_page_data_role == 'page'
+        %div{'data-role' => 'footer', 'class' => 'ui-bar', 'data-position'=>"fixed"}
+          = yield :footer
