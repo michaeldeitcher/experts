@@ -1,0 +1,8 @@
+development:
+  email_limit_to_domain:
+
+test:
+  email_limit_to_domain:
+
+production:
+  email_limit_to_domain:

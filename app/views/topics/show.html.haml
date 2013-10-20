@@ -1,0 +1,20 @@
+- content_for :header do
+  %h1
+    = @topic.name
+.ui-grid-solo
+  %h2
+    Active Questions
+  %ul{"data-role"=>"listview", 'data-inset'=>"true"}
+    %li
+      Question One
+
+
+.ui-grid-a
+  .ui-block-a
+    = render partial: 'role', collection: @topic.role_names.first
+  .ui-block-b
+    = render partial: 'role', collection: @topic.role_names.last
+
+
+- content_for :footer do
+  = session_link

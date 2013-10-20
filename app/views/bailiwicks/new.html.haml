@@ -1,0 +1,17 @@
+= init_dialog "My Expertise in #{@topic.name}"
+
+= form_for @bailiwick, url: topic_bailiwicks_path do |f|
+  = error_messages @bailiwick
+  %fieldset{'data-role' => 'controlgroup'}
+    %legend I would like to be a
+    - Bailiwick.ranks.each do |r|
+      = f.radio_button :rank, r
+      = f.label 'rank_' + r, r
+
+  %fieldset{'data-role' => 'controlgroup'}
+    %legend I am a
+    - Bailiwick.affinities.each do |a|
+      = f.radio_button :affinity, a
+      = f.label 'affinity_' + a, a
+  = f.hidden_field :role
+  = f.submit 'submit'

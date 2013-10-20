@@ -1,0 +1,7 @@
+.ui-body.ui-body-d
+  %h3
+    = role.titleize
+  %ul{"data-role"=>"listview", 'data-inset'=>"true"}
+    = render :partial => 'bailiwick', :collection => @topic.bailiwicks.with_role(role)
+  - if current_user.roles.include?(role) && @topic.bailiwicks.with_user(current_user).count == 0
+    = link_to('add me', new_topic_bailiwick_path(@topic, :role => role), 'data-role'=>"button", 'data-icon'=>"plus")

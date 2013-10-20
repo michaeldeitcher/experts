@@ -1,0 +1,16 @@
+- content_for :header do
+  %h1
+    Topics
+
+%ul{"data-role"=>"listview"}
+  %li{"data-role"=>"list-divider"} Solution
+  = render :partial => 'topic', :collection => SolutionTopic.all
+  %li{"data-role"=>"list-divider"} Aspects and Components
+  = render :partial => 'topic', :collection => ComponentTopic.all
+  %li{"data-role"=>"list-divider"} Integration & External Communication
+  = render :partial => 'topic', :collection => IntegrationTopic.all
+  %li{"data-role"=>"list-divider"} Technologies
+  = render :partial => 'topic', :collection => TechnologyTopic.all
+
+- content_for :footer do
+  = session_link

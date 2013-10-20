@@ -6,5 +6,6 @@ FactoryGirl.define do
     b.topic
     b.affinity 'seasoned'
     b.rank 'primary'
+    b.role 'development'
   end
 end

@@ -1,0 +1,12 @@
+- content_for :header do
+  %h1
+    = @user.first_name + @user.last_name
+
+.ui-grid-solo
+  %h2
+    Topics
+  %ul{"data-role"=>"listview", 'data-inset'=>"true"}
+    = render partial: 'bailiwick', collection: @user.bailiwicks
+
+- content_for :footer do
+  = session_link
